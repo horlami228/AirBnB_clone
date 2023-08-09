@@ -37,13 +37,11 @@ class BaseModel:
                 if key == "created_at" or key == "updated_at":
                     # convert date string to datetime object
                     date_string = value
-                    print("date_string:", date_string)
                     date_object = datetime.datetime.strptime(date_string,
                                                              DATE_FORMAT)
 
                     # strptime() to convert to object
                     value = date_object
-                    print("date_object:", date_object)
                     setattr(self, key, value)
                     # set the created_at or updated_at attributes
                 setattr(self, key, value)
