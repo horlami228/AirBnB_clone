@@ -83,7 +83,7 @@ $
 
 ## 0x04 Testing
 
-All the test is defined in the `tests\test_modoles` folder.
+All the test is defined in the `tests\test_models` folder.
 
 ### Documentation
 
