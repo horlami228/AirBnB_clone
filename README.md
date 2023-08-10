@@ -15,12 +15,10 @@ Team project to build a clone of [AirBnB](https://www.airbnb.com/).
 
 The console is a command interpreter to manage objects abstraction between objects and how they are stored.
 
-To see the fundamental background of the project visit the [Wiki](https://github.com/ralexrivero/AirBnB_clone/wiki).
-
 The console will perform the following tasks:
 
 * create a new object
-* retrive an object from a file
+* retrieve an object from a file
 * do operations on objects
 * destroy an object
 
@@ -37,7 +35,10 @@ All the classes are handled by the `Storage` engine in the `FileStorage` Class.
   * [pycodestyle (version 2.7.*)](https://pypi.org/project/pycodestyle/)
   * [PEP8](https://pep8.org/)
 
-All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.3. The editors used were VIM 8.1.2269, VSCode 1.6.1 and Atom 1.58.0 . Control version using Git 2.25.1.
+All the development and testing were run over an operating system Ubuntu 20.04 LTS
+using programming language Python 3.8.3.
+The editors used were VIM 8.1.2269, VSCode 1.6.1, PyCharm 2023.2 and Atom 1.58.0. 
+Control version using Git 2.25.1.
 
 ## 0x03 Details
 
@@ -85,7 +86,7 @@ $
 
 ## 0x04 Testing
 
-All the test are defined in the `tests` folder.
+All the test is defined in the `tests` folder.
 
 ### Documentation
 
@@ -130,7 +131,7 @@ echo "python3 -m unittest discover tests" | bash
 
 ### run test in non-interactive mode
 
-To run the tests in non-interactive mode, and discover all the test, you can use the command:
+To run the tests in non-interactive mode, and discover all the tests, you can use the command:
 
 ```bash
 python3 -m unittest discover tests
@@ -248,16 +249,14 @@ e952b772-80a5-41e9-b728-6bc4dc5c21b4
 ## Authors
 <details>
     <summary>Akintola Olamilekan</summary>
-    <summary></summary>
     <ul>
     <li><a href="https://github.com/horlami228/">Github</a></li>
-    <li><a href="mailto:horlami228@gmail.com">E-mail</a></li>
+    <li><a href="mailto:akintolaolamilekan51@gmail.com">E-mail</a></li>
     </ul>
 </details>
 
 <details>
     <summary>Theophilus Samuel</summary>
-    <summary></summary>
     <ul>
     <li><a href="https://github.com/ConnectedDot">Github</a></li>
     <li><a href="mailto:psalmomo@gmail.com">E-mail</a></li>
