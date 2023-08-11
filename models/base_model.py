@@ -6,6 +6,8 @@
 from uuid import uuid4
 # import the uuid module for the id
 import datetime
+import models
+
 # import module to show the date and time for instances created
 DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"  # formatted date and time
 
@@ -57,6 +59,9 @@ class BaseModel:
             # public attribute for updated creation time
             self.updated_at = datetime.datetime.utcnow()
 
+            # add the objects to the objects dictionary
+            models.storage.new(self)
+
     def __str__(self):
         """
         This magic method returns a string representation
@@ -72,6 +77,7 @@ class BaseModel:
             with the updated date and time
         """
         self.updated_at = datetime.datetime.utcnow()
+        models.storage.save()  # serialize objects
 
     def to_dict(self):
         """
