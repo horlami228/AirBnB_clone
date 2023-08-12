@@ -54,10 +54,10 @@ class BaseModel:
             self.id = str(uuid4())
 
             # public attribute for the datetime creation of the object
-            self.created_at = datetime.datetime.utcnow()
+            self.created_at = datetime.datetime.now()
 
             # public attribute for updated creation time
-            self.updated_at = datetime.datetime.utcnow()
+            self.updated_at = datetime.datetime.now()
 
             # add the objects to the objects dictionary
             models.storage.new(self)
@@ -76,7 +76,7 @@ class BaseModel:
             This public method updates the updated_at attribute
             with the updated date and time
         """
-        self.updated_at = datetime.datetime.utcnow()
+        self.updated_at = datetime.datetime.now()
         models.storage.save()  # serialize objects
 
     def to_dict(self):
