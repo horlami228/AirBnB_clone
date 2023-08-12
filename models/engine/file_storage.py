@@ -10,7 +10,6 @@ import json
 from models.base_model import BaseModel
 
 
-
 class FileStorage:
     """
         This class represents a File storage class
@@ -45,7 +44,7 @@ class FileStorage:
             for (key, value) in self.__objects.items():
                 base_dic[key] = value.to_dict()
 
-            file.write(json.dumps(base_dic))  # write json data to file
+            json.dump(base_dic, file)  # write json data to file
 
     def reload(self):
         """
@@ -54,8 +53,8 @@ class FileStorage:
         """
         try:
             with open(self.__file_path, "r", encoding="utf-8") as file:
-                json_string = file.read()  # get the json string
-                original_dic = json.loads(json_string)
+
+                original_dic = json.load(file)  # get the json string
                 # deserialize the json string to its original
                 # structure
 
