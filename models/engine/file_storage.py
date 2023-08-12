@@ -10,6 +10,7 @@ import json
 from models.base_model import BaseModel
 
 
+
 class FileStorage:
     """
         This class represents a File storage class
@@ -61,11 +62,11 @@ class FileStorage:
             """
                 loop through the dictionary by getting key, value pairs
                 and use the value to create a new object instance
-                use the key as the key to store the new object in
-                __objects
             """
             for key, value in original_dic.items():
-                base_model = BaseModel(**value)
-                self.__objects[key] = base_model
+                new_object = key.split(".")
+                class_name = new_object[0]
+                """ split and get the class name"""
+                self.new(eval("{}".format(class_name))(**value))
         except FileNotFoundError:
             pass
