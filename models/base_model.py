@@ -85,9 +85,12 @@ class BaseModel:
             keys and values from the __dict__ which is a special attribute
         """
 
-        dic = self.__dict__.copy()  # make a copy of the object dictionary
-        dic["updated_at"] = self.updated_at.isoformat()
-        dic["__class__"] = self.__class__.__name__
-        dic["created_at"] = self.created_at.isoformat()
+        dic = {}
 
+        for (key, value) in self.__dict__.items():
+            if key == "created_at" or key == "updated_at":
+                dic[key] = value.isoformat()
+            else:
+                dic[key] = value
+        dic["__class__"] = self.__class__.__name__
         return dic
