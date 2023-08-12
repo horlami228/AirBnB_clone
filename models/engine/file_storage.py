@@ -66,7 +66,6 @@ class FileStorage:
             """
             for key, value in original_dic.items():
                 base_model = BaseModel(**value)
-                print(base_model)
                 self.__objects[key] = base_model
         except FileNotFoundError:
             pass
