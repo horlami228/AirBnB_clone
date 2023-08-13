@@ -11,5 +11,13 @@ class City(BaseModel):
         name (str): The name of the city.
     """
 
-    state_id = ""
-    name = ""
+    def __init__(self, *args, **kwargs):
+        """
+            Initialize clss user with kwargs
+            Args:
+                *args(positional arg): strings
+                **kwargs(keyword arg): dictionary
+        """
+        super().__init__(*args, **kwargs)
+        self.state_id = ""
+        self.name = ""

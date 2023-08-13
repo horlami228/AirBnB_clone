@@ -5,6 +5,12 @@
 """
 import cmd
 from models.base_model import BaseModel
+from models.user import User
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+from models.state import State
 import models
 
 
@@ -14,6 +20,9 @@ class HBNBCommand(cmd.Cmd):
         from the Cmd Class
     """
     prompt = "(hbnb) "
+
+    list_of_models = ["BaseModel", "User", "State",
+                      "Review", "City", "Amenity", "Place"]
 
     def do_quit(self, line):
         """quit program"""
@@ -45,10 +54,10 @@ class HBNBCommand(cmd.Cmd):
     def validate_base_model(self, line):
         """validate class name"""
         parts = line.split(" ")
-        if parts[0] != "BaseModel":
+        if parts[0] not in self.list_of_models:
             print("** class doesn't exist **")
             return False
-        elif len(parts) == 1 and parts[0] == "BaseModel":
+        elif len(parts) == 1 and parts[0] in self.list_of_models:
             print("** instance id missing **")
             return False
 
@@ -76,16 +85,16 @@ class HBNBCommand(cmd.Cmd):
         check = self.validate_line(line)
         if check is False:
             return
-        if line == "BaseModel":
-            base_model = BaseModel()
-            base_model.save()
-            print(base_model.id)
+        if line in self.list_of_models:
+            model = eval(line)()
+            model.save()
+            print(model.id)
         else:
             print("** class doesn't exist **")
 
     def help_create(self):
         """helper function for create doc"""
-        print("Create command to make a new BaseModel Instance")
+        print("Create command to make a new Model Instance")
 
     def do_show(self, line):
         """Show object string representation"""
@@ -139,10 +148,15 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         """print all objects available"""
-        if line == "BaseModel" or line == "":
-            get_obj = models.storage.all()
+        get_obj = models.storage.all()
+        if line == "":
             all_obj = ["{}".format(value) for value in get_obj.values()]
             print(all_obj)
+        elif line in self.list_of_models:
+            for key, value in get_obj.items():
+                found_key = key.split(".")
+                if found_key[0] == line:
+                    print(value)
         else:
             print("** class doesn't exits **")
 
@@ -174,7 +188,7 @@ class HBNBCommand(cmd.Cmd):
             parts = line.split(" ")
             model_id = "{}.{}".format(parts[0], parts[1])
             attr_name = parts[2]
-            attr_val = parts[3].strip('"')  # remove the forward slash
+            attr_val = parts[3].strip(' "')  # remove the forward slash
 
             if attr_val.isdigit():
                 attr_val = int(attr_val)
@@ -190,7 +204,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_update(self):
         """helper for update"""
-        print("command updated to update with attribute")
+        print("command update to update with attribute")
 
 
 if __name__ == '__main__':

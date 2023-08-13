@@ -10,4 +10,12 @@ class State(BaseModel):
         name (str): The name of the state.
     """
 
-    name = ""
+    def __init__(self, *args, **kwargs):
+        """
+            Initialize clss user with kwargs
+            Args:
+                *args(positional arg): strings
+                **kwargs(keyword arg): dictionary
+        """
+        super().__init__(*args, **kwargs)
+        self.name = ""
