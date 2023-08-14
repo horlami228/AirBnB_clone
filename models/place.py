@@ -44,10 +44,3 @@ class Place(BaseModel):
         self.latitude = 0.0
         self.longitude = 0.0
         self.amenity_ids = []
-
-    def __str__(self):
-        """
-        Returns a string representation of the Place class.
-        """
-        return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, self.__dict__)

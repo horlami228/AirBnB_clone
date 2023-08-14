@@ -12,6 +12,14 @@ class Review(BaseModel):
         text (str): The text of the review.
     """
 
-    place_id = ""
-    user_id = ""
-    text = ""
+    def __init__(self, *args, **kwargs):
+        """
+            Initialize clss user with kwargs
+            Args:
+                *args(positional arg): strings
+                **kwargs(keyword arg): dictionary
+        """
+        super().__init__(*args, **kwargs)
+        self.place_id = ""
+        self.user_id = ""
+        self.text = ""
