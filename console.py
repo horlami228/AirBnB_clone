@@ -253,15 +253,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    HBNBCommand = HBNBCommand()
-
-    # Check if input is being piped from another command or a file
-    if not sys.stdin.isatty():
-        input_lines = sys.stdin.readlines()
-        for line in input_lines:
-            print("{}".format(HBNBCommand.prompt))
-            HBNBCommand.onecmd(line.strip())  # Process each line as a command
-            print(HBNBCommand.prompt, end="")
-            print("")
-    else:
-        HBNBCommand.cmdloop()
+    HBNBCommand().cmdloop()
