@@ -36,13 +36,13 @@ class HBNBCommand(cmd.Cmd):
 
             line = re.sub(pattern=pattern, repl=replacement, string=line)
 
-        if "." in line and "(" in line and ")" in line and '"' in line:
+        elif "." in line and "(" in line and ")" in line and '"' in line:
             pattern = r"(\w+).(\w+)\(\"(\w+-\w+-\w+-\w+-\w+)\"\)"
             replacement = r"\2 \1 \3"
 
             line = re.sub(pattern=pattern, repl=replacement, string=line)
 
-        if "." in line:
+        elif "." in line:
             pattern = r"(\w+).(\w+)\(\)"
             replacement = r"\2 \1"
 
@@ -241,7 +241,8 @@ class HBNBCommand(cmd.Cmd):
             get_obj = models.storage.all()
             for key in get_obj.keys():
                 found_key = key.split(".")
-                count += 1
+                if found_key[0] == line:
+                    count += 1
             print(count)
         else:
             print("** class doesn't exits **")
