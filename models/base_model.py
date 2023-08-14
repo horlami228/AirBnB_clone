@@ -3,10 +3,12 @@
     This module defines a class BaseModel where all other classes will
     inherit from
 """
+
+import models
 from uuid import uuid4
 # import the uuid module for the id
-import datetime
-import models
+from datetime import datetime
+
 
 # import module to show the date and time for instances created
 DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"  # formatted date and time
