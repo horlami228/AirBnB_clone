@@ -193,7 +193,7 @@ class HBNBCommand(cmd.Cmd):
                 if found_key[0] == line:
                     print(value)
         else:
-            print("** class doesn't exits **")
+            print("** class doesn't exist **")
 
     def help_all(self):
         """helper for all"""
@@ -255,7 +255,7 @@ class HBNBCommand(cmd.Cmd):
                     count += 1
             print(count)
         else:
-            print("** class doesn't exits **")
+            print("** class doesn't exist **")
 
     def help_count(self):
         """helper for count"""
