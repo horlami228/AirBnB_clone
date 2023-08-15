@@ -10,7 +10,7 @@
 import os
 import models
 import unittest
-from datetime import datetime
+import datetime
 from time import sleep
 from models.amenity import Amenity
 from models.base_model import BaseModel
