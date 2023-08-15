@@ -8,7 +8,7 @@
 import os
 import unittest
 import models
-from datetime import datetime
+import datetime
 from time import sleep
 from models.base_model import BaseModel
 
