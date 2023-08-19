@@ -3,17 +3,18 @@
     This module defines the shell
     interactive console
 """
+
 import cmd
-from models.base_model import BaseModel
+import re
+import models
+from models import storage
 from models.user import User
 from models.city import City
 from models.place import Place
-from models.amenity import Amenity
-from models.review import Review
 from models.state import State
-import models
-import re
-import sys
+from models.review import Review
+from models.amenity import Amenity
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -22,6 +23,15 @@ class HBNBCommand(cmd.Cmd):
         from the Cmd Class
     """
     prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
 
     list_of_models = ["BaseModel", "User", "State",
                       "Review", "City", "Amenity", "Place"]
@@ -183,7 +193,7 @@ class HBNBCommand(cmd.Cmd):
                 if found_key[0] == line:
                     print(value)
         else:
-            print("** class doesn't exits **")
+            print("** class doesn't exist **")
 
     def help_all(self):
         """helper for all"""
@@ -245,7 +255,7 @@ class HBNBCommand(cmd.Cmd):
                     count += 1
             print(count)
         else:
-            print("** class doesn't exits **")
+            print("** class doesn't exist **")
 
     def help_count(self):
         """helper for count"""
